@@ -1,0 +1,16 @@
+#This program executes text data and provide word count example.
+
+from pyspark.sql import SparkSession #importing pyspark packages
+
+spark = SparkSession.builder.getOrCreate() #creating spark session
+print('spark session created 31st jan.') 
+
+datafile = sc.textFile("/FileStore/tables/wordcount.txt")
+words = datafile.flatMap(lambda line: line.split(" "))
+wordmap = words.map(lambda word: (word, 1))
+counts = wordmap.reduceByKey(lambda a,b:a+b)
+print(datafile)
+
+print("--------------------------")
+print(counts.collect())
+
