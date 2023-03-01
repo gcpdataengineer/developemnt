@@ -1,0 +1,64 @@
+Create Database models;
+
+CREATE TABLE models.Persons (
+    PersonID int,
+	FirstName varchar(255),
+    LastName varchar(255), 
+    City varchar(255),
+	Salary bigint,
+	ContactDate date
+);
+
+
+INSERT INTO models.Persons VALUES
+        (7369, 'SMITH',  'CLERK', 'Hyderabad',45000,'2021-12-15');
+INSERT INTO models.Persons VALUES
+        (7355, 'Levis',  'Ravin', 'Hyderabad',29000,'2021-12-15');
+INSERT INTO models.Persons VALUES
+        (7341, 'Mishell',  'John', 'Hyderabad',60000,'2021-12-15');
+INSERT INTO models.Persons VALUES
+        (7329, 'Jhon',  'Steve', 'Kolkata',63000,'2022-11-12');
+INSERT INTO models.Persons VALUES
+        (7349, 'Paul',  'Samuel', 'Benguluru',54000,'2019-10-17');
+INSERT INTO models.Persons VALUES
+        (7397, 'Eva',  'Pandora', 'Benguluru',34000,'2019-10-17');
+INSERT INTO models.Persons VALUES
+        (7376, 'Jack',  'Sully', 'Benguluru',59000,'2019-10-17');
+INSERT INTO models.Persons VALUES
+        (7319, 'Rambo',  'David', 'Mumbai',76000,'2021-09-07');
+
+select * form models.Persons;
+
+Update models.Persons set FirstName = 'Moses' where PersonID = 7329;
+
+
+select FirstName,LastName,city,salary from models.Persons
+order by FirstName;
+
+select city,count(PersonID) as Total from models.Persons
+group by city;
+
+select city,count(PersonID) as Total from models.Persons
+group by city
+order by city;
+
+select city,sum(Salary) as Total from models.Persons
+group by city
+order by city;
+
+select city,sum(Salary) as Total from models.Persons
+group by city
+having sum(Salary) > 80000
+order by city;
+
+select PersonId,FirstName,LastName,city,salary from models.Persons
+group by PersonId,City
+having Salary > 50000
+order by city asc;
+
+Delete from models.Persons where PersonID = 7369;
+
+DROP TABLE models.Persons;
+
+Drop Database models;
+
