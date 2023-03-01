@@ -1,0 +1,6 @@
+rdd = sc.parallelize([("a", 1), ("b", 2), ("c", 3)])
+print(type(rdd))
+schema=["name","id"]
+df1=rdd.toDF(schema)
+print(type(df1))
+df1.show()
