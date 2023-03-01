@@ -1,0 +1,7 @@
+joins,
+dence rrrank ,rank,row number
+sql queries,
+sql clause,
+control flow functions,
+
+nayanika875
