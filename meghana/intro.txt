@@ -1,0 +1,3 @@
+
+to delete a branch in git use command --delete
+
